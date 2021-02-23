@@ -1,22 +1,21 @@
 package li.dongpo.tc;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
-import java.util.concurrent.CountDownLatch;
 
 /**
  * User: dongpo.li
  * Date: 2020-05-14
  */
 public class Application {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws IOException {
         xml();
-        new CountDownLatch(1).await();
+        System.in.read();
     }
 
     private static void xml(){
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+        context.start();
     }
 }
